@@ -23,7 +23,7 @@ class BanditAlgo(ABC):
         self.counts[arm] += 1
 
         step_size = 1.0 / self.counts[arm]
-        self.q_values[arm] += step_size + (reward - self.q_values[arm])
+        self.q_values[arm] += step_size * (reward - self.q_values[arm])
 
     def random_argmax(self, values: np.ndarray) -> int:
         max_value = values.max()

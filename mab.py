@@ -8,4 +8,5 @@ class BernoulliBandit:
 
     def pull(self, arm: int) -> int:
         probability = self.probabilities[arm]
-        return int(self.rng.random() < probability)
+        is_win = self.rng.random() < probability
+        return 1 if is_win else -1
